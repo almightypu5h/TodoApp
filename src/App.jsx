@@ -4,9 +4,8 @@ import Navbar from './components/Navbar';
 import Main from './components/Main';
 
 function App() {
-  const [todo, setTodo] = useState([]);
   return (
-    <div className=' bg-lime-200 h-screen rounded-2xl m-5'>
+    <div className=' bg-lime-200 h-screen rounded-2xl dark:bg-lime-950'>
     <Navbar/>
     <Main/>
     </div>

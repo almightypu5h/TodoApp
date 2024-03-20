@@ -15,7 +15,7 @@ function Main() {
   const toggleFinished = (e) => {
     setShowFinished(!showFinished)
   }
-  
+
 
   const saveToLS = (params) => {
     localStorage.setItem("todos", JSON.stringify(todos))
@@ -23,7 +23,7 @@ function Main() {
 
   useEffect(() => {
     let todoString = localStorage.getItem("todos")
-    if(todoString){
+    if (todoString) {
       let todos = JSON.parse(localStorage.getItem("todos"))
       setTodos(todos)
     }
@@ -77,19 +77,20 @@ function Main() {
 
 
   return (
-    <div className="flex md:h-full w-full rounded-xl justify-center my-10 bg-lime-200">
-      <div className='flex-col md:h-3/4 md:w-1/2 rounded-xl justify-center  bg-lime-500 overflow-y-scroll'>
+    <div className="flex md:h-full w-full rounded-xl justify-center my-10 bg-lime-200 dark:bg-lime-950">
+      <div className='flex-col md:h-3/4 md:w-1/2 rounded-xl justify-center  bg-lime-500 border-lime-500 border-2 text-black overflow-y-scroll  dark:bg-lime-950 dark:text-lime-500 dark:border-lime-500 dark:border-2'>
 
         {/* input section */}
         <h1 className='font-bold text-xl text-center mt-5 '>Add Your Tasks</h1>
 
-        <div className="flex justify-center h-10 mb-10 gap-5 px-2">
-          <input type="text" onChange={handleChange} value={todo} className='rounded-xl border-2 border-lime-900 px-1 flex text-center' placeholder='Enter the task' />
-          <button onClick={handleAdd} disabled={todo.length==0} className='bg-lime-800 rounded-xl text-xs p-2 disabled:bg-red-600 text-white hover:bg-lime-950'>Add</button>
+        <div className=" justify-center h-10 mb-10 gap-5 px-2">
+          <input type="text" onChange={handleChange} value={todo} className='rounded-xl border-2 bg-lime-200  border-lime-900 px-1 flex text-center w-full my-2 h-full dark:bg-lime-950 dark:border-lime-500' placeholder='Enter the task' />
+          <button onClick={handleAdd} disabled={todo.length == 0} className='bg-lime-800 w-full rounded-xl text-xs p-2 disabled:bg-lime-600 disabled:cursor-no-drop text-white dark:disabled:bg-lime-800 dark:bg-lime-600 hover:bg-lime-950'>Add</button>
         </div>
         <div className=' flex gap-5 m-5'>
-          <input onClick={toggleFinished} type="checkbox" checked={showFinished} name="" id="" />Show completed tasks
-          </div>
+          <input onClick={toggleFinished} type="checkbox" checked={showFinished} className='mt-5' />
+          <label className='mt-5'>Show Finished</label>
+        </div>
         <h1 className='font-bold text-xl text-center mt-5 '>Your Tasks</h1>
 
         {/* tasks section */}
